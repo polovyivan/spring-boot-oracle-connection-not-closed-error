@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /oracle-error-test/v1/
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:oracle:thin:@//localhost:1521/ORCLCDB.localdomain
+    username: IVAN
+    password: password
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      minimum-idle: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      max-lifetime: 1800000
+      #minimum-idle: 2
+      #last 80000
+      #max-life-time: 100000, 200000, 250000, 280000, 290000 last no error
+      #max-life-time: 300000 last error milliseconds
+      #290000 milliseconds  2900 sec keep alive container 1900
